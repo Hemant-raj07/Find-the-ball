@@ -1,0 +1,40 @@
+data=['','O','']
+
+from random import shuffle
+from IPython.display import clear_output
+
+def number(mylist):
+    shuffle(data)
+    return(data)
+
+def player_in():
+    guess=''
+    ranges= ['0','1','2']
+    condition= False
+    while guess not in ['0','1','2'] or condition==False:
+        guess=input("Please enter any input 0,1, or 2 : ")
+        condition=guess.isdigit()
+        if condition== False or guess not in ranges:
+            clear_output()
+            print('You have to enter a number in range 0 to 2, and it should be a number not a string')
+        else:
+            continue
+    return int(guess)
+
+def main(mylist,guess):
+    
+    if mylist[guess]=='O':
+        print ("Your guess is correct!")
+        print(mylist)
+        
+    else:
+        print('your guess is wrong')
+        print(mylist)
+        
+mylist=['','O','']
+
+shuffled_list=number(mylist)
+
+guess=player_in()
+
+main(shuffled_list,guess)
